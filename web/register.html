@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f1f1f1;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto 0;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">用户注册</h4>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <span id="msg"></span>
+                    </div>
+                    <div id="register-form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">用户名</label>
+                            <input type="text" class="form-control" id="username"
+                                   name="username" placeholder="请输入用户名" onblur="verifyUserName()">
+                            <div class="invalid-feedback">
+                                请输入用户名
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="请输入密码">
+                            <div class="invalid-feedback">
+                                请输入密码
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">确认密码</label>
+                            <input onblur="verifyPwd()" type="password" class="form-control" id="confirm-password"
+                                   name="confirmPassword" placeholder="请再次输入密码">
+                            <div class="invalid-feedback">
+                                请再次输入密码
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">邮箱</label>
+                            <input onblur="verifyEmail()" type="text" class="form-control" id="email" name="email"
+                                   placeholder="请输入邮箱">
+                            <div class="invalid-feedback">
+                                请输入邮箱
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" id="register" onclick="examine()">注册
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 引入 Bootstrap JavaScript 文件 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+<!-- 引入 jQuery 文件 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function verifyUserName() {
+        var name = $("#username").val();
+        $.ajax({
+            type: "GET",
+            url: "userServlet",
+            data: {name: name, tag: "exist"},
+            success: function (msg) {
+                if (msg=="1") {
+                    $("#msg").html("用户名已被使用，请换一个使用！").css("color", "red");
+                }else {
+                    $("#msg").html("");
+                }
+            }
+        });
+    }
+
+
+    function verifyPwd() {
+        var pwd = $("#password").val();
+        var conPwd = $("#confirm-password").val();
+        if (pwd != conPwd) {
+            $("#msg").html("密码不一致").css("color", "red");
+        } else {
+            $("#msg").html("");
+        }
+    }
+
+    function verifyEmail() {
+        var email = $("#email").val();
+        var emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$/;
+        if (!emailRegex.test(email)) {
+            $('#msg').html("邮箱格式错误").css("color", "red");
+            $("#email").val("");
+        } else {
+            $('#msg').html("");
+        }
+    }
+
+    function examine() {
+        var name = $("#username").val().trim();
+        var pwd = $("#password").val().trim();
+        var conPwd = $("#confirm-password").val().trim();
+        var email = $("#email").val().trim();
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var day = today.getDate();
+        var dateStr = year + '-' + month + '-' + day;
+        if (name === '' || pwd === '' || conPwd === '' || email === '') {
+            alert("请填写正确的完整信息");
+        } else {
+            $.post("userLoginServlet",
+                {tag:"register", user_name:name, user_password:pwd, email:email, create_time:dateStr},
+                function (data) {
+                    if (data == "1") {
+                        // alert("注册成功！5秒后跳转到首页");
+                        // setTimeout(function() {
+                        //     window.location.href = "index.html";
+                        // }, 5000);
+                    window.location.href = "index.html";
+                    }
+                });
+        }
+    }
+
+</script>
+</body>
+</html>

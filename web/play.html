@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>single</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- bootstrap -->
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' media="all"/>
+    <!-- //bootstrap -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all"/>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!--start-smoth-scrolling-->
+    <!-- fonts -->
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <!-- //fonts -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: white;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./index.html">
+                <h1><img src="./images/log.png" alt=""/></h1>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="top-search">
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="搜索...">
+                    <input type="submit" value=" ">
+                </form>
+            </div>
+            <div class="header-top-right">
+                <div class="signin">
+                    欢迎，用户
+                </div>
+                <div class="signin">
+                    <a href="#small-dialog" class="play-icon popup-with-zoom-anim">退出</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</nav>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top: 100px">
+    <div class="show-top-grids">
+        <div class="col-sm-8 single-left">
+            <div class="song">
+                <div class="video-grid">
+                    <iframe src="video/man.mp4" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="song-grid-right">
+                <div class="share">
+                    <h5>分享</h5>
+                    <ul>
+                        <li><a href="#" class="icon dribbble-icon">微信</a></li>
+                        <li><a href="#" class="icon pinterest-icon">微博</a></li>
+                        <li><a href="#" class="icon like">点赞</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="published">
+                <script src="../jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        size_li = $("#myList li").size();
+                        x = 1;
+                        $('#myList li:lt( ' + x + ') ').show();
+                        $('#loadMore ').click(function () {
+                            x = (x + 1 <= size_li) ? x + 1 : size_li;
+                            $('#myList li:lt( ' + x + ') ').show();
+                        });
+                        $('#showLess ').click(function () {
+                            x = (x - 1 < 0) ? 1 : x - 1;
+                            $('#myList li ').not(':lt( ' + x + ') ').hide();
+                        });
+                    });
+                </script>
+                <div class="load_more">
+                    <ul id="myList">
+                        <li>
+                            <h4>蜘蛛侠：平行宇宙 Spider-Man: Into the Spider-Verse (2018)</h4>
+                            <p>导演: 鲍勃·佩尔西凯蒂 / 彼得·拉姆齐 / 罗德尼·罗斯曼</p>
+                            <p>编剧: 菲尔·罗德 / 罗德尼·罗斯曼 / 布莱恩·本迪斯 / 萨拉·皮凯利 / 史蒂夫·迪特寇 / 斯坦·李 / 戴维·海因 / 法布里斯·萨波尔斯基</p>
+                            <p>主演: 沙梅克·摩尔 / 杰克·约翰逊 / 海莉·斯坦菲尔德 / 马赫沙拉·阿里 / 布莱恩·泰里·亨利 / 更多...</p>
+                        </li>
+                        <li>
+
+                            <div class="load-grids">
+                                <div class="load-grid">
+                                    <p>Category</p>
+                                </div>
+                                <div class="load-grid">
+                                    <a href="../movies.html">Entertainment</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 single-right">
+            <h3>排行榜</h3>
+            <div class="single-grid-right">
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r1.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> interdum metus</a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r2.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="play.html" class="title"> Nullam metus</a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r3.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> Nullam interdum </a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r4.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> interdum metus</a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r5.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> Nullam metus</a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r6.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> the hunger games</a>
+                        <p class="author">By <a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-right-grids">
+                    <div class="col-md-4 single-right-grid-left">
+                        <a href="../web/play.html"><img src="images/r1.jpg" alt=""/></a>
+                    </div>
+                    <div class="col-md-8 single-right-grid-right">
+                        <a href="../web/play.html" class="title"> the notebook</a>
+                        <p class="author"><a href="#" class="author">John Maniya</a></p>
+                        <p class="views">2,114,200 views</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- footer -->
+
+
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+</body>
+
+</html>
